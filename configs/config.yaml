@@ -1,0 +1,26 @@
+
+# Hyperparameters transformer
+input_dim: 160                # Number of Mel bands
+model_dim: 256                # Transformer model dimension
+num_heads: 8                  # Number of attention heads
+num_layers: 6                 # Number of transformer layers
+max_length: 861           # Maximum sequence length - based on the 5s audio setting. 313 = 10s(target_duration) * 22050(sample_rate) / 256(model_dim)
+batch_size: 16               # Batch size
+learning_rate: 0.0001        # Learning rate or 0.001
+num_epochs: 100                # Number of training epochs
+
+# Hyperparamters data processing
+n_fft: 2048    #  FFT window size
+sample_rate: 44100 # Sample rate of the audio 
+n_mels: 160 # Number of Mel bands
+hop_length: 256 # Hop length for the STFT
+target_duration: 5 # Duration of the target audio
+mel_spectram_norm_constant: 100 # Constant to normalize the Mel spectrogram
+
+# Paths
+data_raw_dir: "data/raw"              # Path to raw data
+data_dir: "data/processed"    # Path to processed data
+checkpoint_dir: "outputs/checkpoints"  # Path to save checkpoints
+output_dir: "outputs/audios"         # Path to save outputs
+seed_spectrogram_path: "outputs/sample/seed_spectrogram.pt"  # Path to a seed spectrogram
+checkpoint_best_path: "outputs/checkpoints/model_epoch_20.pt"  # Path to a checkpoint to load
